@@ -15,7 +15,9 @@ import { FadeTransform} from 'react-animation-components';
                             {dish.links.map((link, index) => (
                                 <div key={index}>
                                     <h4>Lecture {index +1}</h4>
-                                     <iframe width="560" height="315" src={ link.url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="myframe"></iframe>
+                                    <div className="embed-responsive embed-responsive-16by9">
+                                    <iframe className="embed-responsive-item" src={ link.url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="myframe"></iframe>
+                                    </div>
                                      <FormGroup check>
                                         <Label check>
                                         <Input type="checkbox" />{' '}

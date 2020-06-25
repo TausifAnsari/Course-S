@@ -92,3 +92,8 @@ address{
   will-change: transform;
   border: 15px solid white;
 }
+
+.sks{
+
+  padding: 10px;
+}

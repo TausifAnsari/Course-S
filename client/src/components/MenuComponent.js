@@ -8,7 +8,7 @@ import { baseUrl } from '../shared/baseUrl';
         return(
             <Card>
                 <Link to={`/Courses/${dish._id}`} >
-                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                    <CardImg  height="250px" src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>
                         <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>
@@ -21,7 +21,7 @@ import { baseUrl } from '../shared/baseUrl';
 
         const menu = props.dishes.dishes.map((dish) => {
             return (
-                <div key={dish._id} className="col-12 col-md-5 m-1">
+                <div key={dish._id} className="col-12 col-md-5 m-1 sks">
                     <RenderMenuItem dish={dish} />
                 </div>
             );

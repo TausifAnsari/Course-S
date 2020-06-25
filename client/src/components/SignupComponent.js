@@ -6,18 +6,6 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 class Signup extends Component {
 
 
-constructor(props) {
-   super(props);
-   this.state ={
-      firstname:'',
-      lastname:'',
-       username:'',
-       email:'',
-       password:''
-   }
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSignup = this.handleSignup.bind(this);
- }
  handleChange=(e)=>{
     this.setState({
        [e.target.id]: e.target.value
@@ -55,7 +43,7 @@ constructor(props) {
    }
    render() {
    return(
-    <div className="container">
+    <div className="container text-white">
         <div className="row">
             <div className="col-5">
                 <h3>Sign up</h3>

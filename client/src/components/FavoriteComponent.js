@@ -11,7 +11,7 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
         <Media tag="li">
             <Card>
                 <Link to={`/mycourses/${dish._id}`} >
-                    <CardImg width="300" height="315" src={baseUrl + dish.image} alt={dish.name} />
+                    <CardImg src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>
                         <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>

@@ -18,9 +18,10 @@ const uploadRouter = require('./routes/uploadRouter');
 const favoriteRouter = require('./routes/favoriteRouter');
 var commentRouter = require('./routes/commentRouter');
 var urlRouter = require('./routes/urlRouter');
+var cors = require('cors')
 var app = express();
 
-
+app.use(cors())
 //db config
 const db=require('./config/keys').MongoURI;
 

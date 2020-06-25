@@ -9,7 +9,7 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
     return(
         <div className="col-12 col-md m-1">
         <Media tag="li">
-            <Card>
+            <Card className="col-sm-6">
                 <Link to={`/mycourses/${dish._id}`} >
                     <CardImg src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>

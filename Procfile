@@ -1,1 +1,1 @@
-web: npm run client && npm start
+web: app.js

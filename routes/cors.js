@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const whitelist = ['http://localhost:3000', ,'http://localhost:3001','https://course-s.herokuapp.com/'];
+const whitelist = ['http://localhost:3000','http://localhost:3001','https://course-s.herokuapp.com/'];
 var corsOptionsDelegate = (req, callback) => {
     var corsOptions;
     console.log(req.header('Origin'));

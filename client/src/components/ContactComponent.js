@@ -45,8 +45,7 @@ class Contact extends Component {
                             <address>
                             Hyderabad, Telangana<br />
                             INDIA<br />
-                            <i className="fa fa-phone"></i>: +852 1234 5678<br />
-                            <i className="fa fa-fax"></i>: +852 8765 4321<br />
+                            <i className="fa fa-phone"></i>:<a href="9398851695">9398851695</a><br />
                             <i className="fa fa-envelope"></i>: <a href="mailto:shaikafroz990807@gmail.com">shaikafroz990807@gmail.com</a>
                             </address>
                     </div>

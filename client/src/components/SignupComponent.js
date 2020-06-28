@@ -154,6 +154,7 @@ class Contact extends Component {
                                     Sign up
                                     </Button>
                                 </Col>
+                                <Link to="/home">Have an account?</Link>
                             </Row>
                         </Form>
                     </div>

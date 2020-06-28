@@ -356,8 +356,8 @@ export const SignupUser = (feedback) => (dispatch) => {
             throw error;
       })
     .then(response => response.json())
-    .then(response => { console.log('Feedback', response); alert('Signup Success please login!\n'+JSON.stringify(response)); })
-    .catch(error =>  { console.log('Feedback', error.message); alert('Thank you for your feedback'); });
+    .then(response => { console.log('Feedback', response); alert(JSON.stringify(response)); })
+    .catch(error =>  { console.log('Feedback', error.message); alert(error.message); });
 };
 export const requestLogout = () => {
     return {

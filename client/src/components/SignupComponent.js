@@ -153,8 +153,8 @@ class Contact extends Component {
                                     <Button type="submit" color="primary">
                                     Sign up
                                     </Button>
+                                    <Link to="/home">Have an account?</Link>
                                 </Col>
-                                <Link to="/home">Have an account?</Link>
                             </Row>
                         </Form>
                     </div>

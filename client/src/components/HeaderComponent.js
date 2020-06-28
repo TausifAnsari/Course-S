@@ -8,6 +8,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
      } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
+
 class Header extends Component {
 
     constructor(props) {
@@ -157,7 +158,7 @@ class Header extends Component {
                                 </Label>
                             </FormGroup>
                             <Button type="submit" value="submit" color="primary">Login</Button>
-                            <a href="/signup">Don't Have Acccount?</a>
+                            <a href="/signup">Don't Have account?</a>
                         </Form>
                     </ModalBody>
                 </Modal>

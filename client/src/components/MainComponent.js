@@ -38,8 +38,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPromos: () => {dispatch(fetchPromos())},
   fetchLeaders: () => dispatch(fetchLeaders()),
   postFeedback: (feedback) => dispatch(postFeedback(feedback)),
+  SignupUser: (feedback) => dispatch(SignupUser(feedback)),
   loginUser: (creds) => dispatch(loginUser(creds)),
-  SignupUser: (firstname,lastname,email,username,password) => dispatch(SignupUser(firstname,lastname,email,username,password)),
   logoutUser: () => dispatch(logoutUser()),
   fetchFavorites: () => dispatch(fetchFavorites()),
   fetchUrls:() => {dispatch(fetchUrls())},
@@ -178,7 +178,7 @@ class Main extends Component {
               <Route path="/Courses/:dishId" component={DishWithId} />
               <PrivateRoute exact path="/mycourses" component={() => <Favorites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
               <PrivateRoute path="/mycourses/:dishId" component={favWithId} />
-              <SecureRoute exact path="/signup" component={()=> <Signup SignupUser={this.props.SignupUser} /> }   />
+              <SecureRoute exact path="/signup" component={()=> <Signup resetFeedbackForm={this.props.resetFeedbackForm} SignupUser={this.props.SignupUser} />}/>
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
               <AdminRoute path="/admin" component={admin} />
               <Route component={Four} />

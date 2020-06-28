@@ -333,46 +333,32 @@ export const SignupError = (message) => {
     }
 }
 
-export const SignupUser = (firstname,lastname,email,username,password) => (dispatch) => {
-
-    const newUser = {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password:password,
-        username:username
-    }
-    console.log('User ', newUser);
-
-
+export const SignupUser = (feedback) => (dispatch) => {
+        
     return fetch(baseUrl + 'users/signup', {
-        method: 'POST',
-        body: JSON.stringify(newUser),
+        method: "POST",
+        body: JSON.stringify(feedback),
         headers: {
-            'Content-Type': 'application/json',
+          "Content-Type": "application/json"
         },
-        credentials: 'same-origin'
+        credentials: "same-origin"
     })
     .then(response => {
         if (response.ok) {
-            return response;
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
         }
-        else {
-            var error = new Error('Error ' + response.status + ': ' + response.statusText);
-            error.response = response;
+      },
+      error => {
             throw error;
-        }
-    },
-    error => {
-        var errmess = new Error(error.message);
-        throw errmess;
-    })
+      })
     .then(response => response.json())
-    .then(response => dispatch(receiveSignup(response)))
-    .catch(error => { console.log('SIGNUP ', error.message);
-     alert('signup succes please login')
-         })
-}
+    .then(response => { console.log('Feedback', response); alert('Signup Success please login!\n'+JSON.stringify(response)); })
+    .catch(error =>  { console.log('Feedback', error.message); alert('Thank you for your feedback'); });
+};
 export const requestLogout = () => {
     return {
       type: ActionTypes.LOGOUT_REQUEST

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './404.css'
 
 export default class four extends Component {
@@ -7,7 +8,8 @@ export default class four extends Component {
     render() {
         return (
             <div>
-                <a href="/home" target="_blank">
+                <Link to="/home">
+                
   <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12 mt-5 mb-5">
@@ -326,7 +328,7 @@ export default class four extends Component {
     </div>
   </div>
 </div>
-</a>
+</Link>
             </div>
         )
     }

@@ -1,104 +1,167 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { SignupUser } from '../redux/ActionCreators';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Control, Form, Errors } from 'react-redux-form';
 
-class Signup extends Component {
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => (val) && (val.length >= len);
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
+class Contact extends Component {
 
-constructor(props) {
-   super(props);
-   this.state ={
-      firstname:'',
-      lastname:'',
-       username:'',
-       email:'',
-       password:''
-   } 
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSignup = this.handleSignup.bind(this);
- }
- handleChange=(e)=>{
-    this.setState({
-       [e.target.id]: e.target.value
- })
-}
+    constructor(props) {
+        super(props);
 
- //signup
- handleSignup(values){
-     var firstname= document.getElementById("firstname").value;
-     var lastname= document.getElementById("lastname").value;
-     var email= document.getElementById("email").value;
-     var username= document.getElementById("username").value;
-     var password= document.getElementById("password").value;
-     console.log(firstname,lastname,email,username,password)
-     if (firstname === "" & lastname==="" & username==="" & password===""){
-         alert("Please fill all the detailes")
-     }
-     else if (firstname===null || firstname===""){  
-        alert("Firstname can't be blank");  
-        return false;  
-      }else if(lastname===null || lastname===""){  
-        alert("last name can't be blank");  
-        return false;  
-        }else if(username===null || username===""){  
-            alert("User name must be atleast 6 charecter");  
-            return false;  
-            }
-      else if(password.length<6){  
-        alert("Password must be at least 6 characters long.");  
-        return false;  
-        }  
-        else{
-    this.props.SignUpUser(firstname,lastname,email,username,password);
-        }
-   }
-   render() {
-   return(
-    <div className="container">
-        <div className="row">
-            <div className="col-5">
-                <h3>Sign up</h3>
-                <hr />
-            </div> 
-        </div>
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-        <Form onSubmit={(values) => this.handleSignup(values)}>
-                    <FormGroup>
-                        <Label htmlFor="firstname">firstname</Label>
-                        <Input type="text" id="firstname" name="firstname"
-                             />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="lastname">lastname</Label>
-                        <Input type="lastname" id="lastname" name="lastname" 
-                             />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="username">username</Label>
-                        <Input type="username" id="username" name="username" 
-                             />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="email">email</Label>
-                        <Input type="email" id="email" name="email" 
-                             />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="password">password</Label>
-                        <Input type="password" id="password" name="password" 
-                              />
-                    </FormGroup>
-                    <Button type="submit" value="submit" color="primary">Sign up</Button>
-                    <a href="/login"> Have Acccount</a>
-                </Form>
+    handleSubmit(values) {
+        console.log("Current State is: " + JSON.stringify(values));
+        this.props.SignupUser(values);
+        this.props.resetFeedbackForm();
+    }
+
+    render() {
+        return(
+            <div className="container">
+                <div className="row">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Sign Up</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12 text-white">
+                        <h3>Sign Up</h3>
+                        <hr />
+                    </div>
+                </div>
+                <div className="row row-content">
+                    <div className="col-12">
+                    </div>
+                    <div className="col-12 col-md-9 text-white">
+                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                            <Row className="form-group">
+                                <Label htmlFor="firstname" md={2}>First Name</Label>
+                                <Col md={10}>
+                                    <Control.text model=".firstname" id="firstname" name="firstname"
+                                        placeholder="First Name"
+                                        className="form-control"
+                                        validators={{
+                                            required, minLength: minLength(3), maxLength: maxLength(15)
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".firstname"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 2 characters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="lastname" md={2}>Last Name</Label>
+                                <Col md={10}>
+                                    <Control.text model=".lastname" id="lastname" name="lastname"
+                                        placeholder="Last Name"
+                                        className="form-control"
+                                        validators={{
+                                            required, minLength: minLength(3), maxLength: maxLength(15)
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".lastname"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 2 characters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="username" md={2}>User Name</Label>
+                                <Col md={10}>
+                                    <Control.text model=".username" id="username" name="username"
+                                        placeholder="User Name"
+                                        className="form-control"
+                                        validators={{
+                                            required, minLength: minLength(5), maxLength: maxLength(15)
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".username"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 5 numbers',
+                                            maxLength: 'Must be 15 numbers or less',
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="email" md={2}>Email</Label>
+                                <Col md={10}>
+                                    <Control.text model=".email" id="email" name="email"
+                                        placeholder="Email"
+                                        className="form-control"
+                                        validators={{
+                                            required, validEmail
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            validEmail: 'Invalid Email Address'
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="password" md={2}>Password</Label>
+                                <Col md={10}>
+                                    <Control.text model=".password" id="password" name="password"
+                                        placeholder="password"
+                                        className="form-control"
+                                        validators={{
+                                            required,  minLength: minLength(5)
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".password"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Password must be at ;least 5 character'
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col md={{size:10, offset: 2}}>
+                                    <Button type="submit" color="primary">
+                                    Sign up
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </div>
+                </div>
             </div>
         );
     }
+
 }
 
-const actionCreators = {
-    SignUpUser: SignupUser,
-}
-
-export default connect(null, actionCreators) (Signup);
+export default Contact;

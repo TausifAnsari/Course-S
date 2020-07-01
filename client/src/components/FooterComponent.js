@@ -27,11 +27,10 @@ function Footer(props) {
                     </div>
                     <div className="col-12 col-sm-4 align-self-center">
                         <div className="text-center">
-                            <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
+                            <a className="btn btn-social-icon btn-github" href="https://github.com/shaikafroz016"><i className="fa fa-github"></i></a>
                             <a className="btn btn-social-icon btn-facebook" href="https://www.facebook.com/people/Shaik-Afroz/100012564463385"><i className="fa fa-facebook"></i></a>
                             <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/shaik-afroz-449b60199/"><i className="fa fa-linkedin"></i></a>
                             <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/Shaikafroz99081"><i className="fa fa-twitter"></i></a>
-                            <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
                             <a className="btn btn-social-icon" href="mailto:shaikafroz990807@gmail.com"><i className="fa fa-envelope-o"></i></a>
                         </div>
                     </div>

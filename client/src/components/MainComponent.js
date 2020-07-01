@@ -175,9 +175,9 @@ class Main extends Component {
               <Route path="/home" component={HomePage}/>
               <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
               <Route exact path="/Courses" component={() => <Menu dishes={this.props.dishes} />} />
-              <Route path="/Courses/:dishId" component={DishWithId} />
+              <Route exact path="/Courses/:dishId" component={DishWithId} />
               <PrivateRoute exact path="/mycourses" component={() => <Favorites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
-              <PrivateRoute path="/mycourses/:dishId" component={favWithId} />
+              <PrivateRoute exact path="/mycourses/:dishId" component={favWithId} />
               <SecureRoute exact path="/signup" component={()=> <Signup resetFeedbackForm={this.props.resetFeedbackForm} SignupUser={this.props.SignupUser} />}/>
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
               <AdminRoute path="/admin" component={admin} />

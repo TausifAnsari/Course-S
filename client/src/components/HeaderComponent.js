@@ -70,7 +70,7 @@ class Header extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/Courses">
-                                         ALL Courese
+                                         ALL Courses
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>

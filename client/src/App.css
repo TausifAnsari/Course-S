@@ -29,7 +29,7 @@ background-image: linear-gradient(to right,rgb(238, 197, 197),rgba(106, 181, 185
 }
 
 .footer{
-  background-image:linear-gradient(to right,rgb(1, 10, 10, 0.562),rgba(32,34,36)) ;
+  background-image:linear-gradient(to right,rgba(28, 29, 29, 0.562),rgb(23, 23, 24)) ;
   height:auto;
   width: auto;
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle,Button } from 'reactstrap';
+import UncontrolledCollapse from 'reactstrap/lib/UncontrolledCollapse.js';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { Link } from 'react-router-dom';
@@ -31,6 +32,20 @@ function RenderCard({item, isLoading, errMess}) {
                         {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null}
                         <CardText>{item.description}</CardText>
                     </CardBody>
+                    <div>
+    <Button color="primary" id="toggler" style={{ marginBottom: '1rem' }}>
+      Toggle
+    </Button>
+    <UncontrolledCollapse toggler="#toggler">
+      <Card>
+        <CardBody>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt magni, voluptas debitis
+          similique porro a molestias consequuntur earum odio officiis natus, amet hic, iste sed
+          dignissimos esse fuga! Minus, alias.
+        </CardBody>
+      </Card>
+    </UncontrolledCollapse>
+  </div>
                 </Card>
             </FadeTransform>
         );

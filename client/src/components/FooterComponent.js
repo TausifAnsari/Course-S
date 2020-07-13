@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 function Footer(props) {
     return(
         <div className="footer text-white">
@@ -9,19 +8,19 @@ function Footer(props) {
                     <div className="col-4 offset-1 col-sm-2">
                         <h5>Links</h5>
                         <ul className="list-unstyled">
-                            <li><Link to="/home">Home</Link></li>
-                            <li><Link to="/aboutus">About Us</Link></li>
-                            <li><Link to="/Courses">All Courses</Link></li>
-                            <li><Link to="/contactus">Contact Us</Link></li>
+                            <li><Link to="/home" className="text-white" >Home</Link></li>
+                            <li><Link to="/aboutus" className="text-white">About Us</Link></li>
+                            <li><Link to="/Courses" className="text-white">All Courses</Link></li>
+                            <li><Link to="/contactus" className="text-white">Contact Us</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">
                         <h5>Our Address</h5>
-                        <address>
+                        <address className="text-white">
                         Hyderabad, Telangana<br />
                         INDIA<br />
-                        <i className="fa fa-phone fa-lg"></i>: <a href="tel:+91 9398851695">9398851695</a><br />
-                        <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:shaikafroz990807@gmail.com">
+                        <i className="fa fa-phone fa-lg"></i>: <a className="text-white" href="tel:+91 9398851695">9398851695</a><br />
+                        <i className="fa fa-envelope fa-lg"></i>: <a className="text-white" href="mailto:shaikafroz990807@gmail.com">
                             shaikafroz990807@gmail.com</a>
                         </address>
                     </div>

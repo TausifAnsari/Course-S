@@ -161,7 +161,7 @@ class Header extends Component {
                             <a href="/signup">Don't Have account?</a>
                         </Form>
                     </ModalBody>
-                </Modal>
+                </Modal> 
             </React.Fragment>
         );
     }

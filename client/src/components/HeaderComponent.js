@@ -15,12 +15,16 @@ class Header extends Component {
         super(props);
         this.state = {
             isNavOpen: false,
-            isModalOpen: false
+            isModalOpen: false,
+            dropdownOpen: false
         };
+        this.toggle = this.toggle.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
     }
 
     toggleNav() {
@@ -45,13 +49,25 @@ class Header extends Component {
     handleLogout() {
         this.props.logoutUser();
     }
+    toggle() {
+        this.setState(prevState => ({
+          dropdownOpen: !prevState.dropdownOpen
+        }));
+      }
+    
+      onMouseEnter() {
+        this.setState({dropdownOpen: true});
+      }
+    
+      onMouseLeave() {
+        this.setState({dropdownOpen: false});
+      }
 
     render() {
        
         return(
             <React.Fragment>
                 <Navbar dark expand="md">
-                    <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/home">
                         <span className="fa fa-book fa-lg"></span>Course-S
@@ -92,7 +108,7 @@ class Header extends Component {
                                         :
                                         <div>
                                             <div className="navbar-text mr-3">
-                                           <UncontrolledDropdown nav inNavbar>
+                                           <UncontrolledDropdown nav inNavbar className="d-inline-block " onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                             <DropdownToggle nav caret>
                                             {this.props.auth.user.username}
                                             </DropdownToggle>
@@ -123,7 +139,6 @@ class Header extends Component {
                                 </NavItem>
                             </Nav>
                         </Collapse>
-                    </div>
                 </Navbar>
                 <Jumbotron>
                     <div className="container ">
@@ -161,7 +176,7 @@ class Header extends Component {
                             <a href="/signup">Don't Have account?</a>
                         </Form>
                     </ModalBody>
-                </Modal> 
+                </Modal>
             </React.Fragment>
         );
     }

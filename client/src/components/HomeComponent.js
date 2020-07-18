@@ -35,7 +35,7 @@ function RenderCard({item, isLoading, errMess}) {
                 }}>
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
                     <CardImg src={baseUrl + item.image} alt={item.name} />
-                        <CardTitle>{item.name}</CardTitle>
+                        <h4><CardTitle>{item.name}</CardTitle></h4>
                     <div>
                     <Button color="link" id="toggler" style={{ marginBottom: '1rem' }}>
                     See details
@@ -73,7 +73,7 @@ function RenderCard1({item, isLoading, errMess}) {
                 }}>
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
                     <CardImg src={baseUrl + item.image} alt={item.name} />
-                        <CardTitle>{item.name}</CardTitle>
+                    <h4><CardTitle>{item.name}</CardTitle></h4>
                     <div>
                     <Button color="link" id="toggler1" style={{ marginBottom: '1rem' }}>
                     See details
@@ -84,7 +84,7 @@ function RenderCard1({item, isLoading, errMess}) {
                     </UncontrolledCollapse>
                 </div>
                 <ColoredLine color="black" />
-                <Link to={`/Courses/`} >
+                <Link to={`/Courses/${item._id}`} >
                 <Button outline color="primary">Go To Course</Button>
                 </Link>
                 </Card>
@@ -111,7 +111,7 @@ function RenderCard2({item, isLoading, errMess}) {
                 }}>
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
                     <CardImg src={baseUrl + item.image} alt={item.name} />
-                        <CardTitle>{item.name}</CardTitle>
+                    <h4><CardTitle>{item.name}</CardTitle></h4>
                     <div>
                     <Button color="link" id="toggler2" style={{ marginBottom: '1rem' }}>
                     See details
@@ -122,7 +122,7 @@ function RenderCard2({item, isLoading, errMess}) {
                     </UncontrolledCollapse>
                 </div>
                 <ColoredLine color="black" />
-                <Link to={`/Courses/`} >
+                <Link to={`/Courses/${item._id}`} >
                 <Button outline color="primary">Go To Course</Button>
                 </Link>
                 </Card>

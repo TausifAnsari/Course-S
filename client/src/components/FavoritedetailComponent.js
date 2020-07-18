@@ -14,14 +14,14 @@ import { FadeTransform} from 'react-animation-components';
                             {/*itrating through array to render all the vedios associated to dish */}
                             {dish.links.map((link, index) => (
                                 <div key={index}>
-                                    <h4>Lecture {index +1}</h4>
+                                    <h4  className="text-white">Lecture {index +1}</h4>
                                     <div className="embed-responsive embed-responsive-16by9">
                                     <iframe className="embed-responsive-item" src={ link.url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="myframe"></iframe>
                                     </div>
                                      <FormGroup check>
                                         <Label check>
                                         <Input type="checkbox" />{' '}
-                                        completed
+                                        <p className="text-white">completed</p>
                                         </Label>
                                     </FormGroup>
                                      <br/>
@@ -61,7 +61,7 @@ import { FadeTransform} from 'react-animation-components';
                             <BreadcrumbItem><Link to='/mycourses'>My Courses</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                         </Breadcrumb>
-                        <div className="col-12">
+                        <div className="col-12 text-white">
                             <h3>All Lecture's for {props.dish.name} Happy learning!!</h3>
                             <hr />
                         </div>

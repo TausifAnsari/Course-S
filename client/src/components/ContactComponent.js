@@ -40,13 +40,13 @@ class Contact extends Component {
                     <div className="col-12">
                     <h3>Location Information</h3>
                     </div>
-                    <div className="col-12 col-sm-4 offset-sm-1 text-white">
-                            <h5>Our Address</h5>
-                            <address>
+                    <div className="col-12 col-sm-4 offset-sm-1">
+                            <h5 className="text-white">Our Address</h5>
+                            <address className="text-white">
                             Hyderabad, Telangana<br />
                             INDIA<br />
-                            <i className="fa fa-phone"></i>:<a href="9398851695">9398851695</a><br />
-                            <i className="fa fa-envelope"></i>: <a href="mailto:shaikafroz990807@gmail.com">shaikafroz990807@gmail.com</a>
+                            <i className="fa fa-phone"></i>:<a  className="text-white" href="tel:+91 9398851695">9398851695</a><br />
+                            <i className="fa fa-envelope"></i>: <a  className="text-white" href="mailto:shaikafroz990807@gmail.com">shaikafroz990807@gmail.com</a>
                             </address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
@@ -55,13 +55,12 @@ class Contact extends Component {
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
                             <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
                             <a role="button" className="btn btn-success" href="mailto:shaikafroz990807@gmail.com"><i className="fa fa-envelope-o"></i> Email</a>
                         </div>
                     </div>
                 </div>
                 <div className="row row-content">
-                    <div className="col-12">
+                    <div className="col-12 text-white">
                         <h3>Send us Your Feedback</h3>
                     </div>
                     <div className="col-12 col-md-9 text-white">

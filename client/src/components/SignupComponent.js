@@ -132,6 +132,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.text model=".password" id="password" name="password"
                                         placeholder="password"
+                                        type="password"
                                         className="form-control"
                                         validators={{
                                             required,  minLength: minLength(5)
@@ -143,7 +144,7 @@ class Contact extends Component {
                                         show="touched"
                                         messages={{
                                             required: 'Required',
-                                            minLength: 'Password must be at ;least 5 character'
+                                            minLength: ' Password must be at least 5 character'
                                         }}
                                      />
                                 </Col>
@@ -153,7 +154,7 @@ class Contact extends Component {
                                     <Button type="submit" color="primary">
                                     Sign up
                                     </Button>
-                                    <Link to="/home">Have an account?</Link>
+                                    <Link to="/home">&nbsp;Have an account?</Link>
                                 </Col>
                             </Row>
                         </Form>

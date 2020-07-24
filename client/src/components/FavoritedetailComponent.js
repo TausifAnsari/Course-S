@@ -1,29 +1,23 @@
 import React from 'react';
-import {  Breadcrumb, BreadcrumbItem ,Label, FormGroup,Input,} from 'reactstrap';
+import {  Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { FadeTransform} from 'react-animation-components';
 
     function RenderDish({dish}) {
             return(
-                <div className="col-12 col-md-5 m-1 container">
+                <div className="col-12 col-md-6 container">
                     <FadeTransform in 
                         transformProps={{
                             exitTransform: 'scale(0.5) translateY(-50%)'
                         }}>
-                            {/*itrating through array to render all the vedios associated to dish */}
+                            {/*itrating through array to render all the vedios associated to Course */}
                             {dish.links.map((link, index) => (
                                 <div key={index}>
                                     <h4  className="text-white">Lecture {index +1}</h4>
                                     <div className="embed-responsive embed-responsive-16by9">
                                     <iframe className="embed-responsive-item" src={ link.url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="myframe"></iframe>
                                     </div>
-                                     <FormGroup check>
-                                        <Label check>
-                                        <Input type="checkbox" />{' '}
-                                        <p className="text-white">completed</p>
-                                        </Label>
-                                    </FormGroup>
                                      <br/>
                                 </div>
                                 ))}

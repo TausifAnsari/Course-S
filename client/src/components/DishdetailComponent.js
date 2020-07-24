@@ -8,8 +8,20 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
+
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 0.1
+        }}
+    />
+);
+
     function RenderDish({dish, favorite, postFavorite}) {
             return(
+                <div className="row">
                 <div className="col-12 col-md-5 m-1">
                     <FadeTransform in 
                         transformProps={{
@@ -17,7 +29,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                         }}>
                         <Card>
                             <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                            <CardImgOverlay>
+                            <CardBody>
                                 <Button outline color="primary" onClick={() => favorite ? console.log('Already Enrolled') : postFavorite(dish._id)}>
                                     {favorite ?
                                         <span>Enrolled</span>
@@ -25,14 +37,19 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                                         <span >Enroll</span>
                                     }
                                 </Button>
-                            </CardImgOverlay>
-                            <CardBody>
-                                <CardTitle>{dish.name}</CardTitle>
-                                <CardText>{dish.description}</CardText>
                             </CardBody>
                         </Card>
                     </FadeTransform>
                 </div>
+                <div className="col-12 col-md-5 m-1">
+                    <Card>
+                        <CardBody>
+                            <h3><CardTitle>{dish.name}</CardTitle></h3>
+                            <CardText>{dish.description}</CardText>
+                        </CardBody>
+                    </Card>
+            </div>
+            </div>
             );
 
     }
@@ -164,7 +181,10 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                     </div>
                     <div className="row ">
                         <RenderDish dish={props.dish} favorite={props.favorite} postFavorite={props.postFavorite} />
-                        <RenderComments comments={props.comments}
+                    </div>
+                    <ColoredLine color="black" />
+                    <div className="row">
+                    <RenderComments comments={props.comments}
                             postComment={props.postComment}
                             dishId={props.dish._id} />
                     </div>

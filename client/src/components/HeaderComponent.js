@@ -153,7 +153,7 @@ class Header extends Component {
                                 </NavItem>
                             </Nav>
                             <Nav  navbar>
-                                <NavItem>&nbsp;OR&nbsp; 
+                                <NavItem>
                                     { !this.props.auth.isAuthenticated ?
                                         <Button color="secondary" onClick={this.toggleModal1}>
                                            Faculty Login

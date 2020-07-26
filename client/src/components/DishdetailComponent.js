@@ -59,7 +59,7 @@ const ColoredLine = ({ color }) => (
             return(
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <ul className="list-unstyled text-white">
+                    <ul className="list-unstyled ">
                         <Stagger in>
                             {comments.map((comment) => {
                                 return (
@@ -169,7 +169,7 @@ const ColoredLine = ({ color }) => (
         else if (props.dish != null)        
             return (
                 <div className="container">
-                    <div className="row text-white">
+                    <div className="row">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/Courses'>All Courses</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>

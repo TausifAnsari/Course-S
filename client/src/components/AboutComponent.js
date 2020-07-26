@@ -17,7 +17,7 @@ function LeaderList(props) {
             <Media left middle>
                 <Media object src={baseUrl + leader.image} alt={leader.name} />
             </Media>
-            <Media body className="ml-5 text-white">
+            <Media body className="ml-5">
                 <Media heading>{leader.name}</Media>
                 <p>{leader.description}</p>
             </Media>
@@ -60,13 +60,13 @@ function About(props) {
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                     <BreadcrumbItem active>About Us</BreadcrumbItem>
                 </Breadcrumb>
-                <div className="col-12 text-white">
+                <div className="col-12">
                     <h3>About Us</h3>
                     <hr />
                 </div>                
             </div>
             <div className="row row-content">
-                <div className="col-12 col-md-6 text-white">
+                <div className="col-12 col-md-6 ">
                     <h2>Our History</h2>
                     <p>Courser-S is a world-wide online learning platform founded in 2012 by Stanford computer science professors Andrew Ng and Daphne Koller that offers massive open online courses (MOOC), specializations, and degrees.
                         Courser-S works with universities and other organizations to offer online courses, specializations, and degrees in a variety of subjects, such as engineering, data science, machine learning, mathematics, business, computer science, digital marketing, humanities, medicine, biology, social sciences, and others.
@@ -75,7 +75,7 @@ function About(props) {
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
-                        <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
+                        <CardHeader className="bg-primary ">Facts At a Glance</CardHeader>
                         <CardBody>
                             <dl className="row p-1">
                                 <dt className="col-6">Started</dt>

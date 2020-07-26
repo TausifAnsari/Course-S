@@ -19,7 +19,7 @@ import { baseUrl } from '../shared/baseUrl';
 
         const menu = props.dishes.dishes.map((dish) => {
             return (
-                <div key={dish._id} className="col-12 col-md-5 m-1 sks">
+                <div key={dish._id} className="col-12 col-md-4  sks">
                     <RenderMenuItem dish={dish} />
                 </div>
             );
@@ -51,7 +51,7 @@ import { baseUrl } from '../shared/baseUrl';
                             <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                             <BreadcrumbItem active>All Courses</BreadcrumbItem>
                         </Breadcrumb>
-                        <div className="col-12 text-white">
+                        <div className="col-12 ">
                             <h3>All Courses</h3>
                             <hr />
                         </div>

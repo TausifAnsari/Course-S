@@ -133,6 +133,10 @@ function RenderCard2({item, isLoading, errMess}) {
 function Home(props) {
     return(
         <div className="container">
+            <div className="col-12 ">
+                            <h3>Featured Courses</h3>
+                            <hr />
+                        </div>
             <div className="row align-items-start ">
                 <div className="col-12 col-md m-1 ">
                     <RenderCard item={props.dish} 

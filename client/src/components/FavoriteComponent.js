@@ -72,12 +72,12 @@ const Favorites = (props) => {
                         <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                         <BreadcrumbItem active>My Courses</BreadcrumbItem>
                     </Breadcrumb>
-                    <div className="col-12 text-white">
+                    <div className="col-12 ">
                         <h3>My Courses</h3>
                         <hr />
                     </div>
                 </div>
-                <div className="row text-white">
+                <div className="row ">
                     <Media list>
                         {favorites}
                     </Media>

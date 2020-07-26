@@ -8,7 +8,7 @@ import { FadeTransform} from 'react-animation-components';
 
     function RenderDish({dish}) {
             return(
-                <div className="col-12 container m-0">
+                <div className="col-12 container m-1">
                     <FadeTransform in 
                         transformProps={{
                             exitTransform: 'scale(0.5) translateY(-50%)'
@@ -16,16 +16,16 @@ import { FadeTransform} from 'react-animation-components';
                             {/*itrating through array to render all the vedios associated to dish */}
                             <Tab.Container id="left-tabs-example" defaultActiveKey="1">
                                 <Row>
-                                    <Col sm={4}>
+                                    <Col md={2}>
                                         <Nav variant="pills" className="flex-column">
                                             {dish.links.map((link, index) => (
                                                 <Nav.Item >
-                                                    <Nav.Link eventKey={index+1} className="text-white"> Lecture {index + 1}</Nav.Link>
+                                                    <Nav.Link eventKey={index+1} > Lecture {index + 1}</Nav.Link>
                                                 </Nav.Item>
                                                 ))}
                                         </Nav>
                                     </Col>
-                                    <Col sm={8}>
+                                    <Col md={10}>
                                         <Tab.Content>
                                         {dish.links.map((link, index) => (
                                                 <Tab.Pane eventKey={index+1}>
@@ -65,13 +65,13 @@ import { FadeTransform} from 'react-animation-components';
         }
         else if (props.dish != null)        
             return (
-                <div className="container m-0 ml-5 mb-3">
-                    <div className="row text-white">
+                <div className="container ">
+                    <div className="row ">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/mycourses'>My Courses</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                         </Breadcrumb>
-                        <div className="col-12 text-white">
+                        <div className="col-12 ">
                             <h3>All Lecture's for {props.dish.name} Happy learning!!</h3>
                             <hr />
                         </div>

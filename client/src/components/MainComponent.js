@@ -8,6 +8,7 @@ import Favorites from './FavoriteComponent';
 import FavoritesDetail from './FavoritedetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import Instructor from './InstructorComponent';
 import Signup from './SignupComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -173,8 +174,9 @@ class Main extends Component {
             <Switch>
               <Route exact path="/" component={HomePage}/>
               <Route path="/home" component={HomePage}/>
-              <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
+              <Route exact path='/aboutus' component={() => <About />} />
               <Route exact path="/Courses" component={() => <Menu dishes={this.props.dishes} />} />
+              <Route exact path="/Instructors" component={() => <Instructor leaders={this.props.leaders}/> }/>
               <Route exact path="/Courses/:dishId" component={DishWithId} />
               <PrivateRoute exact path="/mycourses" component={() => <Favorites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
               <PrivateRoute exact path="/mycourses/:dishId" component={favWithId} />

@@ -1,55 +1,9 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Loading } from './LoadingComponent';
-import { Fade, Stagger } from 'react-animation-components';
-import { baseUrl } from '../shared/baseUrl';
 
 
 
-function LeaderList(props) {
-
-    const leaders = props.leaders.leaders.map((leader) => {
-        return (
-            <Fade in key={leader._id}>
-                <div className="col-12 mt-2">
-                <Media tag="li">
-            <Media left middle>
-                <Media object src={baseUrl + leader.image} alt={leader.name} />
-            </Media>
-            <Media body className="ml-5">
-                <Media heading>{leader.name}</Media>
-                <p>{leader.description}</p>
-            </Media>
-        </Media>
-
-                </div>
-            </Fade>
-        );
-    });
-
-    if (props.leaders.isLoading) {
-        return(
-                <Loading />
-        );
-    }
-    else if (props.leaders.errMess) {
-        return(
-            <div className="col-12"> 
-                <h4>{props.leaders.errMess}</h4>
-            </div>
-        );
-    }
-    else {
-        return (
-            <Media list>
-                <Stagger in>
-                    {leaders}
-                </Stagger>
-            </Media>
-        );
-    }
-}
 
 function About(props) {
 
@@ -103,9 +57,6 @@ function About(props) {
                         </CardBody>
                     </Card>
                 </div>
-            </div>
-            <div className="row row-content">
-               <h2> <LeaderList leaders={props.leaders} /></h2>
             </div>
         </div>
     );

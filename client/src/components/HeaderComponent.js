@@ -17,7 +17,8 @@ class Header extends Component {
             isNavOpen: false,
             isModalOpen: false,
             isModalOpen1: false,
-            dropdownOpen: false
+            dropdownOpen: false,
+            
         };
         this.toggle = this.toggle.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
@@ -28,6 +29,15 @@ class Header extends Component {
         this.handleLogout = this.handleLogout.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.myDivToFocus = React.createRef()
+    }
+    handleOnClick = (event) => {
+        //.current is verification that your element has rendered
+        if(this.myDivToFocus.current){
+            this.myDivToFocus.current.scrollIntoView({ 
+               behavior: "smooth", 
+            })
+        }
     }
 
     toggleNav() {
@@ -105,6 +115,11 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
+                                    <NavLink className="nav-link" to="/Instructors">
+                                         Instructors
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
                                     <NavLink className="nav-link" to="/contactus">
                                          Contact Us
                                     </NavLink>
@@ -174,13 +189,21 @@ class Header extends Component {
                     <div className="container ">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
-                                <h1>Course-S</h1>
-                                <p>The online Course portal for learner to grab Courses for free!</p>
-                                <p>Happy Learning</p>
+                                <h1 >Course-S</h1>
+                                <h4 >The online Course portal for learner to grab Courses for free!</h4>
+                                <p >Happy Learning</p>
+                            <div className="row ">
+                            <div className="col-md-4">
+                            <Button color="info" size="sm"onClick={this.handleOnClick}>scroll down</Button>
                             </div>
+                        </div>
+                        </div>
                         </div>
                     </div>
                 </Jumbotron>
+                <div ref={this.myDivToFocus}>
+                    
+                </div>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>

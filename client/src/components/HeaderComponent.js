@@ -92,7 +92,7 @@ class Header extends Component {
        
         return(
             <React.Fragment>
-                <Navbar dark expand="md " fixed="top">
+                <Navbar dark expand="md " fixed="top" >
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/home">
                         <span className="fa fa-book fa-lg"></span>Course-S
@@ -102,11 +102,6 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
                                         Home
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                         About Us
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
@@ -120,15 +115,21 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
+                                    <NavLink className="nav-link" to="/aboutus">
+                                         About Us
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
                                     <NavLink className="nav-link" to="/contactus">
                                          Contact Us
                                     </NavLink>
                                 </NavItem>
                             </Nav>
+                        
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <Button color="secondary" onClick={this.toggleModal}>
+                                        <Button outline color="secondary" onClick={this.toggleModal}>
                                             Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
@@ -170,7 +171,7 @@ class Header extends Component {
                             <Nav  navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <Button color="secondary" onClick={this.toggleModal1}>
+                                        <Button outline color="secondary" onClick={this.toggleModal1}>
                                            Faculty Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
@@ -183,6 +184,7 @@ class Header extends Component {
 
                                 </NavItem>
                             </Nav>
+                            
                         </Collapse>
                 </Navbar>
                 <Jumbotron>

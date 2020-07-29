@@ -62,20 +62,7 @@ class Main extends Component {
 
   render() {
 
-    const HomePage = () => {
-      return(
-        <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
-          dishesLoading={this.props.dishes.isLoading}
-          dishesErrMess={this.props.dishes.errMess}
-          promotion={this.props.dishes.dishes.filter((dish) => dish.featured)[1]}
-          promosLoading={this.props.dishes.isLoading}
-          promosErrMess={this.props.dishes.errMess}
-          leader={this.props.dishes.dishes.filter((dish) => dish.featured)[2]}
-          leaderLoading={this.props.dishes.isLoading}
-          leaderErrMess={this.props.dishes.errMess}
-        />
-      );
-    }
+
 
     const DishWithId = ({match}) => {
       return(
@@ -172,8 +159,8 @@ class Main extends Component {
         <TransitionGroup>
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
             <Switch>
-              <Route exact path="/" component={HomePage}/>
-              <Route path="/home" component={HomePage}/>
+              <Route exact path="/" component={() => <Home dishes={this.props.dishes} />} />
+              <Route path="/home" component={() => <Home dishes={this.props.dishes} />} />
               <Route exact path='/aboutus' component={() => <About />} />
               <Route exact path="/Courses" component={() => <Menu dishes={this.props.dishes} />} />
               <Route exact path="/Instructors" component={() => <Instructor leaders={this.props.leaders}/> }/>

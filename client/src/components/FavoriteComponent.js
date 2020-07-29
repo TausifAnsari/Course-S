@@ -26,7 +26,7 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
                 <Media heading>{dish.name}</Media>
                 <p>{dish.description}</p>
                 <Button outline color="danger" onClick={() => deleteFavorite(dish._id)}>
-                    <span className="fa fa-times"></span>DELETE
+                    UNENROLL
                 </Button>
             </Media>
         </Media>

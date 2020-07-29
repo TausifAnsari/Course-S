@@ -33,7 +33,7 @@ height:100vh;
 }
 
 .ad{
-  behavior: "smooth";
+  scroll-behavior: smooth;
 }
 
 /* BUTTON STYLE HERE */

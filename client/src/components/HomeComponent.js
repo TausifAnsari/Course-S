@@ -3,7 +3,7 @@ import { Card, CardImg,CardTitle,Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform } from 'react-animation-components';
+import { FadeTransform,Fade } from 'react-animation-components';
 
 
 
@@ -20,10 +20,15 @@ const ColoredLine = ({ color }) => (
     function RenderHomeItem({ dish}) {
        
         return(
-            <FadeTransform in 
-                transformProps={{
-                    exitTransform: 'scale(0.5) translateY(-50%)'
-                }}>
+            <FadeTransform 
+            in
+            transformProps={{
+                exitTransform: 'translateX(-200px)'
+            }}
+            fadeProps={{
+                enterOpacity: 100,
+            }}><Fade in={false} exitOpacity={100}>
+           
                 <Card className="shadow-lg p-3 mb-5 bg-white rounded">
                     <CardImg height="200px" src={baseUrl + dish.image} alt={dish.name} />
                         <h4><CardTitle>{dish.name}</CardTitle></h4>
@@ -32,6 +37,7 @@ const ColoredLine = ({ color }) => (
                 <Button outline color="primary">Go To Course</Button>
                 </Link>
                 </Card>
+                </Fade>
             </FadeTransform>
         );
     }

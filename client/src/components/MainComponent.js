@@ -17,6 +17,7 @@ import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Four from './404/404';
 import admin from './adminComponent';
+import { FadeTransform } from 'react-animation-components';
 
 const mapStateToProps = state => {
     return {
@@ -157,7 +158,16 @@ class Main extends Component {
           logoutUser={this.props.logoutUser} 
           />   
         <TransitionGroup>
-          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+          <CSSTransition 
+        unmountOnExit key={this.props.location.key} classNames="page" timeout={200}>
+          <FadeTransform 
+            in
+            transformProps={{
+                exitTransform: 'translateX(-300px)'
+            }}
+            fadeProps={{
+                enterOpacity: 100,
+            }}>
             <Switch>
               <Route exact path="/" component={() => <Home dishes={this.props.dishes} />} />
               <Route path="/home" component={() => <Home dishes={this.props.dishes} />} />
@@ -172,6 +182,7 @@ class Main extends Component {
               <AdminRoute path="/admin" component={admin} />
               <Route component={Four} />
             </Switch>
+            </FadeTransform>
           </CSSTransition>
         </TransitionGroup>
         <Footer />

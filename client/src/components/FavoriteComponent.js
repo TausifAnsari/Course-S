@@ -1,6 +1,7 @@
-import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React,{ Component } from 'react';
+import { Card, CardImg, Breadcrumb, BreadcrumbItem,ModalBody,ModalHeader,Modal,ModalFooter } from 'reactstrap';
 import { Media,  Button } from 'reactstrap';
+import {LocalForm} from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
@@ -12,9 +13,6 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
             <Card className="col-sm-6">
                 <Link to={`/mycourses/${dish._id}`} >
                     <CardImg src={baseUrl + dish.image} alt={dish.name} />
-                    <CardImgOverlay>
-                        <CardTitle>{dish.name}</CardTitle>
-                    </CardImgOverlay>
                 </Link>
             </Card>
 
@@ -25,14 +23,58 @@ function RenderMenuItem({ dish, deleteFavorite , onClick}) {
             <Media body className="ml-5">
                 <Media heading>{dish.name}</Media>
                 <p>{dish.description}</p>
-                <Button outline color="danger" onClick={() => deleteFavorite(dish._id)}>
-                    UNENROLL
-                </Button>
+                <CommentForm dishId={dish._id} deleteFavorite={deleteFavorite} dish={dish}/>
             </Media>
         </Media>
         </div>
         
     );
+}
+class CommentForm extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        
+        this.state = {
+          isNavOpen: false,
+          isModalOpen: false
+        };
+    }
+
+    toggleModal() {
+        this.setState({
+          isModalOpen: !this.state.isModalOpen
+        });
+    }
+
+    handleSubmit(values) {
+        this.toggleModal();
+        this.props.deleteFavorite(this.props.dishId)
+    }
+
+    render() {
+        return(
+        <div>
+            <Button  outline color="danger" onClick={this.toggleModal}>UNENROLL</Button>
+            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+            <ModalHeader toggle={this.toggleModal}>Confirm Delete</ModalHeader>
+            <ModalBody>
+                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                    <h5>Are You Sure? want To Delete {this.props.dish.name} From Your Courses</h5>
+                    <ModalFooter>
+                    <Button color="danger">UNENROL</Button>
+                    <Button color="primary" onClick={this.toggleModal}>Cancel</Button>
+                    </ModalFooter>
+                </LocalForm>
+            </ModalBody>
+           </Modal>
+        </div>
+        );
+    }
+
 }
 
 const Favorites = (props) => {

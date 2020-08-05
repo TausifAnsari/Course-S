@@ -32,8 +32,12 @@ const ColoredLine = ({ color }) => (
                             <CardBody>
                                 <Button outline color="primary" onClick={() => favorite ? console.log('Already Enrolled') : postFavorite(dish._id)}>
                                     {favorite ?
-                                        <span>Enrolled</span>
-                                        : 
+                                    <div>
+                                        <Link to={`/mycourses/${dish._id}`} >
+                                            <span className="text-dark">Go To Course</span>
+                                            </Link>
+                                    </div>
+                                        :                                    
                                         <span >Enroll</span>
                                     }
                                 </Button>

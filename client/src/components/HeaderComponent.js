@@ -194,14 +194,15 @@ class Header extends Component {
                                 <h1 >Course-S</h1>
                                 <h4 >The online Course portal for learner to grab Courses for free!</h4>
                                 <p >Happy Learning</p>
-                            <div className="row ">
-                            <div className="col-md-4">
-                            <Button color="info" size="sm"onClick={this.handleOnClick}>scroll down</Button>
-                            </div>
-                        </div>
                         </div>
                         </div>
                     </div>
+                    <div class="arrow" onClick={this.handleOnClick} >
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                            
+                            </div>
                 </Jumbotron>
                 <div ref={this.myDivToFocus}>
                     

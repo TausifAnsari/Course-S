@@ -45,6 +45,7 @@ exports.verifyAdmin = function(req, res, next) {
         return next(err);
     }
 };
+//This function uses Facebook Authentication
 exports.facebookPassport = passport.use(new FacebookTokenStrategy({
     clientID: config.facebook.clientId,
     clientSecret: config.facebook.clientSecret

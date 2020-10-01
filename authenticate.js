@@ -1,4 +1,4 @@
-// This file is used for authentication purpose
+// This file is used for authentication purpose nad adds third party authentication to the application.
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
